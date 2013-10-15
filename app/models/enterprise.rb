@@ -2,7 +2,7 @@
 class Enterprise < User
   attr_accessible :corporate_name
 
-  after_initialize :init
+  after_create :init
 
   usar_como_cnpj :cnpj
 
@@ -11,11 +11,8 @@ class Enterprise < User
   has_one :cashier
 
   def init
-  	if self.cashier.nil?
-  		cashier = Cashier.create :opening_balance => 0, :enterprise => self
+  		cashier = Cashier.create opening_balance: 0.0, enterprise: self
   		cashier.save
-  	end  	
   end
 	 
 end
-
