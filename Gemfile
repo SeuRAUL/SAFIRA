@@ -30,6 +30,8 @@ gem 'paperclip-dropbox'
 
 gem 'virtus'
 
+gem 'coveralls', require: false
+
 group :test do
   gem 'simplecov'
   gem 'capybara'
