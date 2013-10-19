@@ -2,6 +2,8 @@
 
 FactoryGirl.define do
   factory :cashier do
-    opening_balance 1    
+    opening_balance 0.0
+    releases
+    enterprise
   end
 end
