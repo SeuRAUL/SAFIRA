@@ -6,9 +6,7 @@
       <h2>Cashier</h2>
     </span>
     <div class="pull-right">
-      <% @cashiers.each do |cashier| %>
-        <%= link_to '+ NEW RELEASE', new_cashier_release_path(cashier), :class => "btn--success" %>
-      <% end %>
+      <%= link_to '+ NEW RELEASE', new_cashier_release_path(current_user), :class => "btn--success" %>
     </div> 
   </header>
 
@@ -26,7 +24,7 @@
         <th>Value</th>
       </tr>
 
-      <% Release.all.each do |r| %>
+      <% current_user.cashier.releases.all.each do |r| %>
         <tr>
           <td><%= r.type_release %></td>
           <th><%= r.description %></th>
@@ -38,33 +36,7 @@
           <td><%= r.value %></td>
         </tr>
       <%end%>
-
-      <!--how to access releases ?-->  
-      
-      <%  @cashiers.each do |cashier| %>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><%= cashier.opening_balance %></td>
-        </tr>
-      <% end %>
-
- <!--     <% @cashiers.each do |cashier| %>
-
-        <tr>
-          <td><%= cashier.opening_balance %></td>
-          <td><%= link_to 'Show', cashier %></td>
-          <td><%= link_to 'Edit', edit_cashier_path(cashier) %></td>
-          <td><%= link_to 'Destroy', cashier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-
-      <% end %>
--->      
+     
     </tbody>
   </table>
 

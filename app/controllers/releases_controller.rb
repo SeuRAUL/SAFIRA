@@ -16,7 +16,7 @@ class ReleasesController < ApplicationController
     @release = Release.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html  show.html.erb
       format.json { render json: @release }
     end
   end
@@ -44,7 +44,7 @@ class ReleasesController < ApplicationController
   def create
     @cashier = Cashier.find(params[:cashier_id])
     @release = @cashier.releases.new(params[:release])
-    @cashier.opening_balance = params[:release][:value]
+    current_user.cashier.opening_balance = current_user.cashier.opening_balance + params[:release][:value].to_d
     #@release.date_release = post_date Date.today
     respond_to do |format|
       if @release.save

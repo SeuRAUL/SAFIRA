@@ -18,4 +18,4 @@ enterprise2 = Enterprise.create(name: "4Soft2", password: "12345678", 	email: "4
 entrepreneur2 = Entrepreneur.new(name: "Pinkman",
  personal_email: "email2@email.com", professional_email: "email2@email.com")
 entrepreneur2.enterprise = enterprise2
-entrepreneur.save
+entrepreneur2.save
