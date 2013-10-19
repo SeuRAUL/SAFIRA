@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :cashier do
-    opening_balance 1
-    references ""
+    opening_balance 1    
   end
 end

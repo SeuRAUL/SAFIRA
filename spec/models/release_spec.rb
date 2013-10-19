@@ -7,5 +7,5 @@ describe Release do
   #end
   
   it {should belong_to :cashier}
-  
+  it {should have_a_valid_factory}
 end

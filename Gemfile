@@ -48,6 +48,6 @@ group :development do
   gem 'magic_encoding', require: false
 end
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
