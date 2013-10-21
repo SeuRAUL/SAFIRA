@@ -4,7 +4,7 @@ class CreateReleases < ActiveRecord::Migration
       t.boolean :type_release
       t.decimal :value
       t.text :description
-      t.integer :form_payment
+      t.string :form_payment
       t.date :date_release
       t.integer :doc_number
       t.integer :doc_type
