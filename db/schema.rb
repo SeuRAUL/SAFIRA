@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(:version => 20130928133943) do
     t.string   "form_payment"
     t.date     "date_release"
     t.integer  "doc_number"
-    t.integer  "doc_type"
+    t.string   "doc_type"
     t.integer  "origin_destination"
     t.integer  "cashier_id"
     t.datetime "created_at",         :null => false

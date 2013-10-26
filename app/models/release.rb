@@ -3,7 +3,7 @@ class Release < ActiveRecord::Base
   attr_accessible :date_release, :description, :doc_number, :doc_type, :form_payment, :origin_destination, :type_release, :value
   
   POSSIBLE_FORM_PAYMENT = ["Cartao", "Dinheiro", "Boleto", "Cheque"]
-  POSSIBLE_DOC_TYPE = ["Exemplo 1", "Exemplo 2"]
+  POSSIBLE_DOC_TYPE = ["Recibo", "Cupom Fiscal", "Nota Fiscal"]
 
   validates :value, presence: true, numericality: true #, message: "Precisa constar o valor da nota."
   validates :description, presence: true #, message: "Precisa constar a descrição da nota."

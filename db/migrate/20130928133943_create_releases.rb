@@ -7,7 +7,7 @@ class CreateReleases < ActiveRecord::Migration
       t.string :form_payment
       t.date :date_release
       t.integer :doc_number
-      t.integer :doc_type
+      t.string :doc_type
       t.integer :origin_destination
       t.references :cashier
 
