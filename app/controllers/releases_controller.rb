@@ -26,6 +26,7 @@ class ReleasesController < ApplicationController
   def new
     @release = Release.new
     @cashier = Cashier.find(params[:cashier_id])
+    # @release.type_release = params[:type_release]
 
     respond_to do |format|
       format.html # new.html.erb
