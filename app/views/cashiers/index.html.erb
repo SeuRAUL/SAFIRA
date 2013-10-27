@@ -3,7 +3,7 @@
 <section class="panel">
   <header class="panel__header">
     <span class="hide-mobile">
-      <h2>Cashier</h2>
+      <h2>Cashier</h2> <h3><%= current_user.cashier.opening_balance %></h3>
     </span>
     <div class="pull-right">
       <%= link_to '+ NEW RELEASE', new_cashier_release_path(current_user), :class => "btn--success" %>

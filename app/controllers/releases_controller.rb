@@ -44,7 +44,9 @@ class ReleasesController < ApplicationController
   def create
     @cashier = Cashier.find(params[:cashier_id])
     @release = @cashier.releases.new(params[:release])
-    current_user.cashier.opening_balance = current_user.cashier.opening_balance + params[:release][:value].to_d
+
+    #update_cashier(params[:release][:value].to_d)
+
     #@release.date_release = post_date Date.today
     respond_to do |format|
       if @release.save
@@ -77,12 +79,20 @@ class ReleasesController < ApplicationController
   # DELETE /releases/1
   # DELETE /releases/1.json
   def destroy    
-    @release = Release.find(params[:id])    
+    @release = Release.find(params[:id])
+    update_cashier(@release.value * -1)
     @release.destroy
     
     respond_to do |format|
       format.html { redirect_to cashier_path(params[:cashier_id]) }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def update_cashier (valor)
+    c = current_user.cashier
+    c.opening_balance += valor
+    c.save
   end
 end
