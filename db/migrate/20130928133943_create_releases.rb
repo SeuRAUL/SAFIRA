@@ -8,7 +8,7 @@ class CreateReleases < ActiveRecord::Migration
       t.date :date_release
       t.integer :doc_number
       t.string :doc_type
-      t.integer :origin_destination
+      t.string :origin_destination
       t.references :cashier
 
       t.timestamps

@@ -3,7 +3,7 @@
 <section class="panel">
   <header class="panel__header">
     <span class="hide-mobile">
-      <h2>Cashier</h2> <h3><%= current_user.cashier.opening_balance %></h3>
+      <h2>Últimos lançamentos</h2> <h4>Saldo <%= current_user.cashier.opening_balance %></h4>
     </span>
     <div class="pull-right">
       <%= link_to 'LANÇAMENTO', new_cashier_release_path(current_user), :class => "btn--success" %>
@@ -24,12 +24,13 @@
         <th>Value</th>
       </tr>
 
-      <% current_user.cashier.releases.all.each do |r| %>
+    <% Release.where(cashier_id: current_user.cashier.id).limit(6).each do |r| %>
         <tr>
+          
           <td><%= r.type_release %></td>
-          <th><%= r.description %></th>
+          <td><%= r.description %></td>
           <td><%= r.form_payment %></td>
-          <td><%= r.date_release %></td>
+          <td><%= post_date r.date_release %></td>
           <td><%= r.doc_number %></td>
           <td><%= r.doc_type %></td>
           <td><%= r.origin_destination %></td>
@@ -37,6 +38,7 @@
         </tr>
       <%end%>
      
+
     </tbody>
   </table>
 
