@@ -13,6 +13,8 @@
   <% end %>
 
 
+    <%= f.label "Tipo de Release" %>
+    <%= f.select :type_release, options_for_select([["Entrada", "Entrada"], ["Saida", "Saida"]]), :required => true %><br /><br />
 
     <%= f.label "Valor" %>
     <%= f.text_field :value, :required => true, 'data-behaviour' => 'number_field', :cols => 10 %>
@@ -31,7 +33,9 @@
     
     <%= f.label "Tipo de documento" %>
     <%= f.select :doc_type, options_for_select([["Recibo", "Recibo"], ["Cupom Fiscal", "Cupom Fiscal"], ["Nota Fiscal", "Nota Fiscal"]]), :required => true %><br /><br />
-
+    
+    <%= f.label "Origem/Destino" %>
+      <%= f.text_field :origin_destination, :required => true %>
 
 
 

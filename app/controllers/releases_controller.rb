@@ -90,10 +90,4 @@ class ReleasesController < ApplicationController
     end
   end
 
-  private
-  def update_cashier (valor)
-    c = current_user.cashier
-    c.opening_balance += valor
-    c.save
-  end
 end

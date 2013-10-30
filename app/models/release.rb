@@ -17,7 +17,13 @@ class Release < ActiveRecord::Base
 
   def update_cashier
   	c = Cashier.find(self.cashier_id)
-    c.opening_balance += self.value
+    self.value *= -1 if self.value < 0
+
+    if self.type_release == "Entrada"
+      c.opening_balance += self.value
+    else
+      c.opening_balance -= self.value
+    end
     c.save
   end
 

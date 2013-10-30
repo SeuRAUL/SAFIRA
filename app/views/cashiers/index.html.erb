@@ -6,8 +6,7 @@
       <h2>Cashier</h2> <h3><%= current_user.cashier.opening_balance %></h3>
     </span>
     <div class="pull-right">
-      <%= link_to '+ ENTRADA', new_cashier_release_path(current_user), :class => "btn--success" %>
-      <%= link_to '- SAIDA', new_cashier_release_path(current_user), :class => "btn--danger" %>
+      <%= link_to 'LANÇAMENTO', new_cashier_release_path(current_user), :class => "btn--success" %>
     </div> 
   </header> 
 

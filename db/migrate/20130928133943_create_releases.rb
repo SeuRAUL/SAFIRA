@@ -1,7 +1,7 @@
 class CreateReleases < ActiveRecord::Migration
   def change
     create_table :releases do |t|
-      t.integer :type_release
+      t.string :type_release
       t.decimal :value
       t.text :description
       t.string :form_payment
