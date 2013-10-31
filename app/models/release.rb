@@ -14,6 +14,7 @@ class Release < ActiveRecord::Base
   belongs_to :cashier
 
   before_save :update_cashier
+  after_destroy :recount_cashier
 
   def update_cashier
   	c = Cashier.find(self.cashier_id)
@@ -26,5 +27,15 @@ class Release < ActiveRecord::Base
     end
     c.save
   end
+
+  def recount_cashier
+    c = Cashier.find(self.cashier_id)
+    if self.type_release == "Entrada"
+      c.opening_balance -= self.value
+    else
+      c.opening_balance += self.value
+    end
+    c.save
+  end 
 
 end
