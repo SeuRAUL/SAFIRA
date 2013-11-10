@@ -4,4 +4,4 @@
 
 SAFIRA
 ===
-SAFIRA C) um aplicativo online para gerC*ncia de recursos humanos. Por enquanto, suas funcionalidades se restringem a gerC*ncia de processos seletivos.
+SAFIRA é um aplicativo online para gerência de recursos humanos. Por enquanto, suas funcionalidades se restringem a gerência de processos seletivos.
