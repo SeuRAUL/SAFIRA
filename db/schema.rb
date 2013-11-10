@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130928133943) do
+ActiveRecord::Schema.define(:version => 20131109182413) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -112,8 +112,9 @@ ActiveRecord::Schema.define(:version => 20130928133943) do
     t.string   "doc_type"
     t.string   "origin_destination"
     t.integer  "cashier_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "view",               :default => true
   end
 
   create_table "selection_processes", :force => true do |t|
