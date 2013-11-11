@@ -44,6 +44,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'magic_encoding', require: false
 end

@@ -71,32 +71,32 @@ class CashiersController < ApplicationController
     end
   end
 
-  # DELETE /cashiers/1
-  # DELETE /cashiers/1.json
-  def destroy
-    @cashier = Cashier.find(params[:id])
-    @releases = @cashier.releases
-    @releases.destroy_all
-    @cashier.destroy
+  # # DELETE /cashiers/1
+  # # DELETE /cashiers/1.json
+  # def destroy
+  #   @cashier = Cashier.find(params[:id])
+  #   @releases = @cashier.releases
+  #   @releases.destroy_all
+  #   @cashier.destroy
 
-    respond_to do |format|
-      format.html { redirect_to cashiers_url }
-      format.json { head :no_content }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { redirect_to cashiers_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
-  def changeOpeningBalance (value)
-    @cashier = Cashier.find(params[:id])
+  # def changeOpeningBalance (value)
+  #   @cashier = Cashier.find(params[:id])
     
 
-    respond_to do |format|
-      if @cashier.opening_balance += value
-        format.html { redirect_to @cashier, notice: 'Cashier was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @cashier.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @cashier.opening_balance += value
+  #       format.html { redirect_to @cashier, notice: 'Cashier was successfully updated.' }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: "edit" }
+  #       format.json { render json: @cashier.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 end
