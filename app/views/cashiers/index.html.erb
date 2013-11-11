@@ -24,7 +24,7 @@
         <th>Value</th>
       </tr>
 
-    <% Release.where(cashier_id: current_user.cashier.id).limit(6).each do |r| %>
+    <% Release.where(cashier_id: current_user.cashier.id, view: true).limit(6).each do |r| %>
         <tr>
           
           <td><%= r.type_release %></td>
