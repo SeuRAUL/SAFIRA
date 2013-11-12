@@ -14,14 +14,16 @@
     <tbody>
 
       <tr>
-        <th>Type release</th>
-        <th>Description</th>
-        <th>Form payment</th>
-        <th>Date release</th>
-        <th>Doc number</th>
-        <th>Doc type</th>
-        <th>Origin destination</th>
-        <th>Value</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Forma de pagamento</th>
+        <th>Data</th>
+        <th>Número do documento</th>
+        <th>Tipo do documento</th>
+        <th>Propósito</th>
+        <th>Valor</th>
+        <th></th>
+        <th></th>
       </tr>
 
     <% Release.where(cashier_id: current_user.cashier.id, view: true).limit(6).each do |r| %>
@@ -35,10 +37,12 @@
           <td><%= r.doc_type %></td>
           <td><%= r.origin_destination %></td>
           <td><%= r.value %></td>
+          <td><%= link_to "EDITAR", :class => "btn" %></td>
+          <td><%= link_to "EXCLUIR", :class => "btn" %></td>
+             
         </tr>
       <%end%>
      
-
     </tbody>
   </table>
 
