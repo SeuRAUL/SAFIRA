@@ -13,7 +13,7 @@ class Release < ActiveRecord::Base
 
   belongs_to :cashier
 
-  before_save :update_cashier
+  before_create :update_cashier
   after_destroy :recount_cashier
 
   def update_cashier
