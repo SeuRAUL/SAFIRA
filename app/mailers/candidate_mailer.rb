@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+#encoding: utf-8
 class CandidateMailer < ActionMailer::Base
   default from: "safira.4soft@gmail.com"
 
