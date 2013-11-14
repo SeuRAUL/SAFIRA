@@ -30,6 +30,8 @@ gem 'paperclip-dropbox'
 
 gem 'virtus'
 
+gem 'multi_json', '1.7.9'
+
 gem 'coveralls', require: false
 
 group :test do
