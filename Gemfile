@@ -20,7 +20,7 @@ gem 'cancan'
 gem 'acts-as-taggable-on'
 gem 'mailcatcher'
 
-gem 'brazilian-rails'
+gem 'brazilian-rails', '~> 3.0.2'
 
 gem 'paperclip'
 

@@ -30,6 +30,9 @@ describe CashiersController do
   # CashiersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  new_cashier = '/cashier/new'
+  index = '/cachiers'
+
   describe "GET index" do
     it "assigns all cashiers as @cashiers" do
       cashier = Cashier.create! valid_attributes
