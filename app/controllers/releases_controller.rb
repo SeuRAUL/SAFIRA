@@ -46,8 +46,6 @@ class ReleasesController < ApplicationController
     @cashier = Cashier.find(params[:cashier_id])
     @release = @cashier.releases.new(params[:release])
 
-    #update_cashier(params[:release][:value].to_d)
-
     #@release.date_release = post_date Date.today
     respond_to do |format|
       if @release.save

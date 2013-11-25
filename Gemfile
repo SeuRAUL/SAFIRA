@@ -5,11 +5,11 @@ gem 'rails', '3.2.13'
 gem 'jquery-rails'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'bourbon'
-  gem 'neat'  
+  gem 'neat'
 end
 
 gem 'therubyracer'
@@ -20,7 +20,7 @@ gem 'cancan'
 gem 'acts-as-taggable-on'
 gem 'mailcatcher'
 
-gem 'brazilian-rails', '~> 3.0.2'
+gem 'brazilian-rails'
 
 gem 'paperclip'
 
@@ -30,7 +30,7 @@ gem 'paperclip-dropbox'
 
 gem 'virtus'
 
-gem 'multi_json', '1.7.9'
+gem 'multi_json'
 
 gem 'coveralls', require: false
 
@@ -52,5 +52,5 @@ group :development do
 end
 
 # group :production do
-#   gem 'pg'
+# gem 'pg'
 # end

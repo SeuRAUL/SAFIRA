@@ -3,8 +3,7 @@ SIG::Application.routes.draw do
 
 
   resources :cashiers do
-    resources :releases do 
-    end
+    resources :releases
   end
 
   resources :reports, only: [:index]
