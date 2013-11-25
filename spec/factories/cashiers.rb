@@ -7,7 +7,7 @@ FactoryGirl.define do
     # enterprise
   factory :cashier do
 	opening_balance 0.0
-	releases nil
+	#releases nil
 	#enterprise FactoryGirl.build(:enterprise)
   end
 end

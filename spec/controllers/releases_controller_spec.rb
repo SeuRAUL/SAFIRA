@@ -23,7 +23,7 @@ describe ReleasesController do
   # This should return the minimal set of attributes required to create a valid
   # Release. As you add validations to Release, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "type_release" => "false" } }
+  let(:valid_attributes) { { type_release: "Entrada", value: 10.2, description: "MyText", form_payment: "Cartao", date_release: "2013-10-21", doc_number: 1, doc_type: "Recibo", origin_destination: "Origem" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -55,7 +55,10 @@ describe ReleasesController do
 
   describe "GET edit" do
     it "assigns the requested release as @release" do
-      release = Release.create! valid_attributes
+      #release = Release.create! valid_attributes
+      cashier = FactoryGirl.create(:cashier)
+      release = FactoryGirl.create(:release)
+
       get :edit, {:id => release.to_param}, valid_session
       assigns(:release).should eq(release)
     end
@@ -158,9 +161,13 @@ describe ReleasesController do
   end
 
   it 'should go to cashiers path after create a release' do
-    create(:release)
+    #create(:release)
+    cashier = FactoryGirl.create(:cashier)
+    release = FactoryGirl.create(:release)
 
-    current_path.should == cashier_path(:release_id)
+    #current_path.should == cashier_path(:release_id)
+    #current_path.should redirect_to(cashiers_path)
+    response.should redirect_to(cashier_path)
 
   end
 

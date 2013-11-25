@@ -5,10 +5,12 @@ FactoryGirl.define do
     value 10.2
     description "MyText"
     form_payment "Cartao"
-    date_release "2013-09-28"
+    date_release "2013-10-21"
     doc_number 1
     doc_type "Recibo"
     origin_destination "Origem"
-    cashier
+    cashier_id 1
+    created_at "2013-10-21"
+    updated_at "2013-10-21"
   end
 end
