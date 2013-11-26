@@ -1,16 +1,15 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 FactoryGirl.define do
-  factory :release do    
-    type_release "Entrada"
-    value 10.2
-    description "MyText"
-    form_payment "Cartao"
-    date_release "2013-10-21"
-    doc_number 1
-    doc_type "Recibo"
-    origin_destination "Origem"
-    cashier_id 1
-    created_at "2013-10-21"
-    updated_at "2013-10-21"
+  factory :release do |r| 
+    r.type_release "Entrada"
+    r.value 10.2
+    r.description "MyText"
+    r.form_payment "Cartao"
+    r.date_release "2013-10-21"
+    r.doc_number 1
+    r.doc_type "Recibo"
+    r.origin_destination "Origem"
+    r.association :cashier
+
   end
 end

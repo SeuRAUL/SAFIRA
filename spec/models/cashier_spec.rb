@@ -7,4 +7,6 @@ describe Cashier do
 
   it {should have_many :releases}
 
+  it {should have_a_valid_factory}
+
 end
