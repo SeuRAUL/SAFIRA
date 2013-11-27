@@ -1,6 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 FactoryGirl.define do
-  factory :release do    
+  factory :release do   
+     
     type_release "Entrada"
     value 10.2
     description "MyText"
@@ -9,8 +10,6 @@ FactoryGirl.define do
     doc_number 1
     doc_type "Recibo"
     origin_destination "Origem"
-    cashier_id 1
-    created_at "2013-10-21"
-    updated_at "2013-10-21"
+    cashier    
   end
 end
