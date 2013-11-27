@@ -21,4 +21,10 @@ describe Release do
   end
 
   
+    
+  describe '#update_cashier' do
+    it 'should increase the value of opening_balance'
+  end
+
+
 end

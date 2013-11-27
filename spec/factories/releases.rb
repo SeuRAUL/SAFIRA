@@ -9,8 +9,6 @@ FactoryGirl.define do
     doc_number 1
     doc_type "Recibo"
     origin_destination "Origem"
-    cashier_id 1
-    created_at "2013-10-21"
-    updated_at "2013-10-21"
+    cashier    
   end
 end
