@@ -26,7 +26,7 @@
         <th></th>
       </tr>
 
-    <% Release.where(cashier_id: current_user.cashier.id, view: true).limit(6).each do |r| %>
+    <% Release.where(view: true).limit(6).each do |r| %>
         <tr>
           
           <td><%= r.type_release %></td>
@@ -37,8 +37,8 @@
           <td><%= r.doc_type %></td>
           <td><%= r.origin_destination %></td>
           <td><%= r.value %></td>
-          <td><%= link_to "EDITAR", :class => "btn" %></td>
-          <td><%= link_to "EXCLUIR", :class => "btn" %></td>
+          <td><%= link_to "EDITAR", '/cashiers/'+r.cashier_id.to_s+'/releases/'+r.id.to_s+'/edit', :class => "btn" %></td>
+          <td><%= link_to "EXCLUIR", [r.cashier, r], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
              
         </tr>
       <%end%>

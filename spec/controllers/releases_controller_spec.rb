@@ -18,7 +18,9 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
+  cashier = FactoryGirl.create(:cashier)
 describe ReleasesController do
+
 
   # This should return the minimal set of attributes required to create a valid
   # Release. As you add validations to Release, be sure to
@@ -32,7 +34,8 @@ describe ReleasesController do
 
   describe "GET index" do
     it "assigns all releases as @releases" do
-      release = Release.create! valid_attributes
+      #release = Release.create! valid_attributes
+      release = FactoryGirl.create(:release)
       get :index, {}, valid_session
       assigns(:releases).should eq([release])
     end
@@ -40,7 +43,8 @@ describe ReleasesController do
 
   describe "GET show" do
     it "assigns the requested release as @release" do
-      release = Release.create! valid_attributes
+      #release = Release.create! valid_attributes
+      release = FactoryGirl.create(:release)
       get :show, {:id => release.to_param}, valid_session
       assigns(:release).should eq(release)
     end
@@ -56,7 +60,7 @@ describe ReleasesController do
   describe "GET edit" do
     it "assigns the requested release as @release" do
       #release = Release.create! valid_attributes
-      cashier = FactoryGirl.create(:cashier)
+      #cashier = FactoryGirl.create(:cashier)
       release = FactoryGirl.create(:release)
 
       get :edit, {:id => release.to_param}, valid_session
@@ -104,7 +108,8 @@ describe ReleasesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested release" do
-        release = Release.create! valid_attributes
+        #release = Release.create! valid_attributes
+        release = FactoryGirl.create(:release)
         # Assuming there are no other releases in the database, this
         # specifies that the Release created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -114,13 +119,15 @@ describe ReleasesController do
       end
 
       it "assigns the requested release as @release" do
-        release = Release.create! valid_attributes
+        #release = Release.create! valid_attributes
+        release = FactoryGirl.create(:release)
         put :update, {:id => release.to_param, :release => valid_attributes}, valid_session
         assigns(:release).should eq(release)
       end
 
       it "redirects to the release" do
-        release = Release.create! valid_attributes
+        #release = Release.create! valid_attributes
+        release = FactoryGirl.create(:release)
         put :update, {:id => release.to_param, :release => valid_attributes}, valid_session
         response.should redirect_to(release)
       end
@@ -128,7 +135,8 @@ describe ReleasesController do
 
     describe "with invalid params" do
       it "assigns the release as @release" do
-        release = Release.create! valid_attributes
+        #release = Release.create! valid_attributes
+        release = FactoryGirl.create(:release)
         # Trigger the behavior that occurs when invalid params are submitted
         Release.any_instance.stub(:save).and_return(false)
         put :update, {:id => release.to_param, :release => { "type_release" => "invalid value" }}, valid_session
@@ -136,7 +144,8 @@ describe ReleasesController do
       end
 
       it "re-renders the 'edit' template" do
-        release = Release.create! valid_attributes
+        #release = Release.create! valid_attributes
+        release = FactoryGirl.create(:release)
         # Trigger the behavior that occurs when invalid params are submitted
         Release.any_instance.stub(:save).and_return(false)
         put :update, {:id => release.to_param, :release => { "type_release" => "invalid value" }}, valid_session
@@ -147,14 +156,16 @@ describe ReleasesController do
 
   describe "DELETE destroy" do
     it "destroys the requested release" do
-      release = Release.create! valid_attributes
+      #release = Release.create! valid_attributes
+      release = FactoryGirl.create(:release)
       expect {
         delete :destroy, {:id => release.to_param}, valid_session
       }.to change(Release, :count).by(-1)
     end
 
     it "redirects to the releases list" do
-      release = Release.create! valid_attributes
+      #release = Release.create! valid_attributes
+      release = FactoryGirl.create(:release)
       delete :destroy, {:id => release.to_param}, valid_session
       response.should redirect_to(releases_url)
     end
@@ -162,7 +173,7 @@ describe ReleasesController do
 
   it 'should go to cashiers path after create a release' do
     #create(:release)
-    cashier = FactoryGirl.create(:cashier)
+    
     release = FactoryGirl.create(:release)
 
     #current_path.should == cashier_path(:release_id)

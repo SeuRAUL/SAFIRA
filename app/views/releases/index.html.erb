@@ -25,13 +25,13 @@
     <td><%= release.doc_number %></td>
     <td><%= release.doc_type %></td>
     <td><%= release.origin_destination %></td>
-    <td><%= link_to 'Show', release %></td>
-    <td><%= link_to 'Edit', edit_release_path(release) %></td>
-    <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', '/cashiers/1/releases/'+release.id.to_s %></td>
+    <td><%= link_to 'Excluir', [release.cashier, release], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Release', new_release_path %>
+<%= link_to 'New Release', new_cashier_release_path(current_user) %>
