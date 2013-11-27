@@ -5,11 +5,11 @@ gem 'rails', '3.2.13'
 gem 'jquery-rails'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'bourbon'
-  gem 'neat'  
+  gem 'neat'
 end
 
 gem 'therubyracer'
@@ -52,5 +52,5 @@ group :development do
 end
 
 # group :production do
-#   gem 'pg'
+# gem 'pg'
 # end
