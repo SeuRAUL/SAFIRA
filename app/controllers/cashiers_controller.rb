@@ -2,7 +2,8 @@ class CashiersController < ApplicationController
   # GET /cashiers
   # GET /cashiers.json
   def index
-    @cashiers = Cashier.all
+    #@cashiers = Cashier.all
+    @cashiers = Cashier.where(enterprise_id: current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb

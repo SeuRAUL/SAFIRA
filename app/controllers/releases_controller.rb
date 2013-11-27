@@ -2,12 +2,13 @@ class ReleasesController < ApplicationController
   # GET /releases
   # GET /releases.json
   def index
-    @releases = Release.all
+    #@releases = Release.all
+    @releases = Release.where(cashier_id: current_user.cashier.id, view: true)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @releases }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @releases }
+    # end
   end
 
   # GET /releases/1
@@ -15,10 +16,10 @@ class ReleasesController < ApplicationController
   def show
     @release = Release.find(params[:id])
 
-    respond_to do |format|
-      format.html  show.html.erb
-      format.json { render json: @release }
-    end
+    # respond_to do |format|
+    #   format.html  show.html.erb
+    #   format.json { render json: @release }
+    # end
   end
 
   # GET /releases/new
@@ -79,8 +80,9 @@ class ReleasesController < ApplicationController
   # DELETE /releases/1.json
   def destroy    
     @release = Release.find(params[:id])
-    update_cashier(@release.value * -1)
-    @release.destroy
+    #update_cashier(@release.value * -1)
+    @release.view = false
+    @release.save
     
     respond_to do |format|
       format.html { redirect_to cashier_path(params[:cashier_id]) }

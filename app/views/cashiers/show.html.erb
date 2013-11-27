@@ -1,16 +1,45 @@
-x<% redirect_to current_user.cashier %>
-<!-- <p id="notice"><%= notice %></p>
+
+<p id="notice"><%= notice %></p>
 
 <p>
   <b>Opening balance:</b>
   <%= @cashier.opening_balance %>
 </p>
 
-<p>
-  <b>References:</b>
-  <%= @cashier.references %>
-</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Type release</th>
+      <th>Value</th>
+      <th>Description</th>
+      <th>Form payment</th>
+      <th>Date release</th>
+      <th>Doc number</th>
+      <th>Doc type</th>
+      <th>Origin destination</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
+    <% @cashier.releases.where(view: true).each do |release| %>
+      <tr>
+        <td><%= release.type_release %></td>
+        <td><%= release.value %></td>
+        <td><%= release.description %></td>
+        <td><%= release.form_payment %></td>
+        <td><%= release.date_release %></td>
+        <td><%= release.doc_number %></td>
+        <td><%= release.doc_type %></td>
+        <td><%= release.origin_destination %></td>
+        <td><%= link_to 'Show', cashier_releases_path(current_user), :class => "btn" %></td>
+        <td><%= link_to 'Excluir', [release.cashier, release], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_cashier_path(@cashier) %> |
-<%= link_to 'Back', cashiers_path %> -->
+<br />
+
+<%= link_to 'New Release', new_cashier_release_path(current_user) %>
