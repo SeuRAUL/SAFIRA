@@ -19,145 +19,145 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe CashiersController do
+  pending "add some examples to (or delete) #{__FILE__}"
+  # # This should return the minimal set of attributes required to create a valid
+  # # Cashier. As you add validations to Cashier, be sure to
+  # # adjust the attributes here as well.
+  # let(:valid_attributes) { { "opening_balance" => "1" } }
 
-  # This should return the minimal set of attributes required to create a valid
-  # Cashier. As you add validations to Cashier, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) { { "opening_balance" => "1" } }
+  # # This should return the minimal set of values that should be in the session
+  # # in order to pass any filters (e.g. authentication) defined in
+  # # CashiersController. Be sure to keep this updated too.
+  # let(:valid_session) { {} }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # CashiersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  # new_cashier = '/cashier/new'
+  # index = '/cachiers'
 
-  new_cashier = '/cashier/new'
-  index = '/cachiers'
+  # describe "GET index" do
+  #   it "assigns all cashiers as @cashiers" do
+  #     cashier = Cashier.create! valid_attributes
+  #     get :index, {}, valid_session
+  #     assigns(:cashiers).should eq([cashier])
+  #   end
+  # end
 
-  describe "GET index" do
-    it "assigns all cashiers as @cashiers" do
-      cashier = Cashier.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:cashiers).should eq([cashier])
-    end
-  end
+  # describe "GET show" do
+  #   it "assigns the requested cashier as @cashier" do
+  #     cashier = Cashier.create! valid_attributes
+  #     get :show, {:id => cashier.to_param}, valid_session
+  #     assigns(:cashier).should eq(cashier)
+  #   end
+  # end
 
-  describe "GET show" do
-    it "assigns the requested cashier as @cashier" do
-      cashier = Cashier.create! valid_attributes
-      get :show, {:id => cashier.to_param}, valid_session
-      assigns(:cashier).should eq(cashier)
-    end
-  end
+  # describe "GET new" do
+  #   it "assigns a new cashier as @cashier" do
+  #     get :new, {}, valid_session
+  #     assigns(:cashier).should be_a_new(Cashier)
+  #   end
+  # end
 
-  describe "GET new" do
-    it "assigns a new cashier as @cashier" do
-      get :new, {}, valid_session
-      assigns(:cashier).should be_a_new(Cashier)
-    end
-  end
+  # describe "GET edit" do
+  #   it "assigns the requested cashier as @cashier" do
+  #     cashier = Cashier.create! valid_attributes
+  #     get :edit, {:id => cashier.to_param}, valid_session
+  #     assigns(:cashier).should eq(cashier)
+  #   end
+  # end
 
-  describe "GET edit" do
-    it "assigns the requested cashier as @cashier" do
-      cashier = Cashier.create! valid_attributes
-      get :edit, {:id => cashier.to_param}, valid_session
-      assigns(:cashier).should eq(cashier)
-    end
-  end
+  # describe "POST create" do
+  #   describe "with valid params" do
+  #     it "creates a new Cashier" do
+  #       expect {
+  #         post :create, {:cashier => valid_attributes}, valid_session
+  #       }.to change(Cashier, :count).by(1)
+  #     end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Cashier" do
-        expect {
-          post :create, {:cashier => valid_attributes}, valid_session
-        }.to change(Cashier, :count).by(1)
-      end
+  #     it "assigns a newly created cashier as @cashier" do
+  #       post :create, {:cashier => valid_attributes}, valid_session
+  #       assigns(:cashier).should be_a(Cashier)
+  #       assigns(:cashier).should be_persisted
+  #     end
 
-      it "assigns a newly created cashier as @cashier" do
-        post :create, {:cashier => valid_attributes}, valid_session
-        assigns(:cashier).should be_a(Cashier)
-        assigns(:cashier).should be_persisted
-      end
+  #     it "redirects to the created cashier" do
+  #       post :create, {:cashier => valid_attributes}, valid_session
+  #       response.should redirect_to(Cashier.last)
+  #     end
+  #   end
 
-      it "redirects to the created cashier" do
-        post :create, {:cashier => valid_attributes}, valid_session
-        response.should redirect_to(Cashier.last)
-      end
-    end
+  #   describe "with invalid params" do
+  #     it "assigns a newly created but unsaved cashier as @cashier" do
+  #       # Trigger the behavior that occurs when invalid params are submitted
+  #       Cashier.any_instance.stub(:save).and_return(false)
+  #       post :create, {:cashier => { "opening_balance" => "invalid value" }}, valid_session
+  #       assigns(:cashier).should be_a_new(Cashier)
+  #     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved cashier as @cashier" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Cashier.any_instance.stub(:save).and_return(false)
-        post :create, {:cashier => { "opening_balance" => "invalid value" }}, valid_session
-        assigns(:cashier).should be_a_new(Cashier)
-      end
+  #     it "re-renders the 'new' template" do
+  #       # Trigger the behavior that occurs when invalid params are submitted
+  #       Cashier.any_instance.stub(:save).and_return(false)
+  #       post :create, {:cashier => { "opening_balance" => "invalid value" }}, valid_session
+  #       response.should render_template("new")
+  #     end
+  #   end
+  # end
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Cashier.any_instance.stub(:save).and_return(false)
-        post :create, {:cashier => { "opening_balance" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
+  # describe "PUT update" do
+  #   describe "with valid params" do
+  #     it "updates the requested cashier" do
+  #       cashier = Cashier.create! valid_attributes
+  #       # Assuming there are no other cashiers in the database, this
+  #       # specifies that the Cashier created on the previous line
+  #       # receives the :update_attributes message with whatever params are
+  #       # submitted in the request.
+  #       Cashier.any_instance.should_receive(:update_attributes).with({ "opening_balance" => "1" })
+  #       put :update, {:id => cashier.to_param, :cashier => { "opening_balance" => "1" }}, valid_session
+  #     end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested cashier" do
-        cashier = Cashier.create! valid_attributes
-        # Assuming there are no other cashiers in the database, this
-        # specifies that the Cashier created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Cashier.any_instance.should_receive(:update_attributes).with({ "opening_balance" => "1" })
-        put :update, {:id => cashier.to_param, :cashier => { "opening_balance" => "1" }}, valid_session
-      end
+  #     it "assigns the requested cashier as @cashier" do
+  #       cashier = Cashier.create! valid_attributes
+  #       put :update, {:id => cashier.to_param, :cashier => valid_attributes}, valid_session
+  #       assigns(:cashier).should eq(cashier)
+  #     end
 
-      it "assigns the requested cashier as @cashier" do
-        cashier = Cashier.create! valid_attributes
-        put :update, {:id => cashier.to_param, :cashier => valid_attributes}, valid_session
-        assigns(:cashier).should eq(cashier)
-      end
+  #     it "redirects to the cashier" do
+  #       cashier = Cashier.create! valid_attributes
+  #       put :update, {:id => cashier.to_param, :cashier => valid_attributes}, valid_session
+  #       response.should redirect_to(cashier)
+  #     end
+  #   end
 
-      it "redirects to the cashier" do
-        cashier = Cashier.create! valid_attributes
-        put :update, {:id => cashier.to_param, :cashier => valid_attributes}, valid_session
-        response.should redirect_to(cashier)
-      end
-    end
+  #   describe "with invalid params" do
+  #     it "assigns the cashier as @cashier" do
+  #       cashier = Cashier.create! valid_attributes
+  #       # Trigger the behavior that occurs when invalid params are submitted
+  #       Cashier.any_instance.stub(:save).and_return(false)
+  #       put :update, {:id => cashier.to_param, :cashier => { "opening_balance" => "invalid value" }}, valid_session
+  #       assigns(:cashier).should eq(cashier)
+  #     end
 
-    describe "with invalid params" do
-      it "assigns the cashier as @cashier" do
-        cashier = Cashier.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Cashier.any_instance.stub(:save).and_return(false)
-        put :update, {:id => cashier.to_param, :cashier => { "opening_balance" => "invalid value" }}, valid_session
-        assigns(:cashier).should eq(cashier)
-      end
+  #     it "re-renders the 'edit' template" do
+  #       cashier = Cashier.create! valid_attributes
+  #       # Trigger the behavior that occurs when invalid params are submitted
+  #       Cashier.any_instance.stub(:save).and_return(false)
+  #       put :update, {:id => cashier.to_param, :cashier => { "opening_balance" => "invalid value" }}, valid_session
+  #       response.should render_template("edit")
+  #     end
+  #   end
+  # end
 
-      it "re-renders the 'edit' template" do
-        cashier = Cashier.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Cashier.any_instance.stub(:save).and_return(false)
-        put :update, {:id => cashier.to_param, :cashier => { "opening_balance" => "invalid value" }}, valid_session
-        response.should render_template("edit")
-      end
-    end
-  end
+  # describe "DELETE destroy" do
+  #   it "destroys the requested cashier" do
+  #     cashier = Cashier.create! valid_attributes
+  #     expect {
+  #       delete :destroy, {:id => cashier.to_param}, valid_session
+  #     }.to change(Cashier, :count).by(-1)
+  #   end
 
-  describe "DELETE destroy" do
-    it "destroys the requested cashier" do
-      cashier = Cashier.create! valid_attributes
-      expect {
-        delete :destroy, {:id => cashier.to_param}, valid_session
-      }.to change(Cashier, :count).by(-1)
-    end
-
-    it "redirects to the cashiers list" do
-      cashier = Cashier.create! valid_attributes
-      delete :destroy, {:id => cashier.to_param}, valid_session
-      response.should redirect_to(cashiers_url)
-    end
-  end
+  #   it "redirects to the cashiers list" do
+  #     cashier = Cashier.create! valid_attributes
+  #     delete :destroy, {:id => cashier.to_param}, valid_session
+  #     response.should redirect_to(cashiers_url)
+  #   end
+  # end
 
 end
