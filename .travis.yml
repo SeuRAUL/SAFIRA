@@ -7,7 +7,7 @@ env:
 
 script:
   - bundle
-  - rspec spec/models/release_spec.rb
+  - RAILS_ENV=rspec spec/models/release_spec.rb
 #  - RAILS_ENV=test bundle exec rake db:migrate --trace
 #  - bundle exec rake db:test:prepare
 #  - bundle exec rake
