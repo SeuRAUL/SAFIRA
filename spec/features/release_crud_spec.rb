@@ -1,12 +1,10 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-
 new_release = '/cashiers/1/releases/new'
 index = '/cashiers'
 
 feature 'CRUD release' do
-	include Features::SessionHelpers
 
 	before do 
 		@enterprise = create(:enterprise)
@@ -16,7 +14,7 @@ feature 'CRUD release' do
 	scenario 'create Release when everything is already registered and with valid data' do						
 		create(:cashier, enterprise: @enterprise)	
 
-		visit(new_release)
+		visit new_release
 
 		fill_in 'release[value]', with: 19.50
 		fill_in 'release[doc_number]', with: 666
