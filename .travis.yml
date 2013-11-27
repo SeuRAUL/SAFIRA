@@ -8,6 +8,7 @@ env:
 script:
   - bundle
   - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:seed
   - bundle exec db:test:prepare
   - bundle exec rspec
 before_script:
