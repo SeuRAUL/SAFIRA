@@ -2,8 +2,8 @@
 require 'spec_helper'
 
 describe Release do
-  let(:cashier) { FactoryGirl.create :cashier }
-  
+
+
   # Relationships
   it {should belong_to (:cashier)}
 
@@ -17,13 +17,21 @@ describe Release do
 
   # Methods
   it "verifying opening_balance" do
+    cashier = create(:cashier)
   	expect(cashier.opening_balance) == 0
   end
 
   
     
   describe '#update_cashier' do
-    it 'should increase the value of opening_balance'
+
+    it 'should increase the value of opening_balance' do
+      cashier = create(:cashier)
+      release = create(:release, type_release: 'Saida', value: 0.4, cashier_id: 1)
+      
+      expect(cashier.opening_balance) == 99
+
+    end
   end
 
 

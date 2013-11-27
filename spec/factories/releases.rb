@@ -1,6 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 FactoryGirl.define do
-  factory :release do    
+  factory :release do   
+     
     type_release "Entrada"
     value 10.2
     description "MyText"
