@@ -30,10 +30,8 @@ feature 'CRUD release' do
   end
 
   context 'Create' do
-    background do
-    	click_on 'Cadastrar'
-    end
 	scenario 'with correct inputs - create' do
+		click_on 'Cadastrar'
 	   	expect(page).to have_content 19.50
 	   	expect(page).to have_content 666
 	   	expect(page).to have_content '2013-10-31'
@@ -46,11 +44,9 @@ feature 'CRUD release' do
   end
 
   context 'Update' do
-    background do
-      click_on 'Cadastrar'
-      click_on 'EDITAR'
-    end
     scenario 'with correct inputs - update' do
+    	click_on 'Cadastrar'
+      	click_on 'EDITAR'
     	fill_in 'release[description]', with: 'Subway'
     	click_on 'Cadastrar'
     	expect(page).to have_content 'Subway'
@@ -58,12 +54,9 @@ feature 'CRUD release' do
   end
 
   context 'Destroy' do
-    background do
+    scenario 'successfully' do
       click_on 'Cadastrar'
       click_on 'EXCLUIR'
-    end
-    scenario 'successfully' do
-      #click_on 'EXCLUIR'
     end
   end
 
