@@ -1,32 +1,11 @@
 language: ruby
 rvm:
-  - 1.9.3
+  - 1.22.12
 
 env:
   - DB=sqlite
 
-#script:
-#  - bundle
- # - RAILS_ENV=test bundle exec rake db:migrate --trace
-#  - bundle exec rake db:seed
-  #- bundle exec db:test:prepare
- # - bundle exec rspec
-#before_script:
-  #- bundle exec rake db:create RAILS_ENV=test
-  
-before_install:
-  - sed -i s/'pg'/'sqlite3'/ src/Gemfile
-install:
-  - cd src
-  - bundle install --path bundle
-  
-before_script:
-  - cp config/database.sqlite config/database.yml
-  - bundle exec rake dc:oauth_keys
-  - bundle exec rake db:drop
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
-  - bundle exec rake db:seed
-  - bundle exec rake db:test:prepare
 script:
-  - bundle exec rspec 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
