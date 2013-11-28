@@ -5,11 +5,26 @@ rvm:
 env:
   - DB=sqlite
 
-script:
-  - bundle
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:seed
-  - bundle exec db:test:prepare
-  - bundle exec rspec
+#script:
+#  - bundle
+ # - RAILS_ENV=test bundle exec rake db:migrate --trace
+#  - bundle exec rake db:seed
+  #- bundle exec db:test:prepare
+ # - bundle exec rspec
+#before_script:
+  #- bundle exec rake db:create RAILS_ENV=test
+  
+  
+install:
+  - bundle install --path bundle
+  
 before_script:
-  - bundle exec rake db:create RAILS_ENV=test
+  - cp config/database.sqlite config/database.yml
+  - bundle exec rake dc:oauth_keys
+  - bundle exec rake db:drop
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake db:seed
+  - bundle exec rake db:test:prepare
+script:
+  - bundle exec rspec 
