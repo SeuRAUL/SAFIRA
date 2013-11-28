@@ -14,8 +14,10 @@ env:
 #before_script:
   #- bundle exec rake db:create RAILS_ENV=test
   
-  
+before_install:
+  - sed -i s/'pg'/'sqlite3'/ src/Gemfile
 install:
+  - cd src
   - bundle install --path bundle
   
 before_script:
