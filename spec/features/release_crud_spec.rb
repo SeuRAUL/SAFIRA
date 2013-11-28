@@ -5,7 +5,7 @@ new_release = '/cashiers/1/releases/new'
 edit_release = '/cashiers/1/releases/1/edit'
 index = '/cashiers'
 
-feature 'CRUD release' do
+feature 'Release Features' do
 	include Features::SessionHelpers
  	
  	background do
@@ -36,6 +36,7 @@ feature 'CRUD release' do
       select 'Recibo', from: 'release[doc_type]'
       select 'Saida', from: 'release[type_release]'
       fill_in 'release[origin_destination]', with: 'Origem'
+      #click_on 'Cadastrar'
     end
   	scenario 'with correct inputs - create' do
   		# click_on 'Cadastrar'
