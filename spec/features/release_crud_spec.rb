@@ -5,11 +5,13 @@ new_release = '/cashiers/1/releases/new'
 index = '/cashiers'
 
 feature 'CRUD release' do
+	include Features::SessionHelpers
+ 	
+ 	background do
+    	@user = FactoryGirl.create :enterprise
+    	sign_in @user
+  	end
 
-	before do 
-		@enterprise = create(:enterprise)
-		sign_in(@enterprise)
-	end
 	
 	scenario 'create Release when everything is already registered and with valid data' do						
 		create(:cashier, enterprise: @enterprise)	
