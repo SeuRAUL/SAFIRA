@@ -28,7 +28,7 @@ describe Release do
     it 'should increase the value of opening_balance' do
       cashier = create(:cashier)
       release = create(:release, type_release: 'Saida', value: 0.4, cashier_id: 1)
-
+      release.update_cashier
       expect(cashier.opening_balance) == -0.4
 
     end
