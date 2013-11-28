@@ -7,6 +7,6 @@ FactoryGirl.define do
     year 2013
     semester 1
     edict File.new(Rails.root + 'spec/support/edictTest.pdf')
-    enterprise FactoryGirl.build(:enterprise)
+    enterprise { FactoryGirl.build(:enterprise) }
   end
 end

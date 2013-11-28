@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :cashier do |c|
 	c.opening_balance 0.0
-	enterprise
+	enterprise { FactoryGirl.build(:enterprise) }
   end
 end

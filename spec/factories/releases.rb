@@ -10,6 +10,6 @@ FactoryGirl.define do
     doc_number 1
     doc_type "Recibo"
     origin_destination "Origem"
-    cashier    
+    cashier { FactoryGirl.build(:cashier) }
   end
 end
