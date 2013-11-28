@@ -8,31 +8,20 @@ feature 'CRUD release' do
 	include Features::SessionHelpers
  	
  	background do
+ 		
     	@user = FactoryGirl.create :enterprise
     	sign_in @user
+    	@cashier = FactoryGirl.create :cashier, enterprise: @user
   	end
 
-	
-	scenario 'create Release when everything is already registered and with valid data' do						
-		create(:cashier, enterprise: @enterprise)	
+  context 'Index' do
+    background do
+      @release = FactoryGirl.create :release, cashier: @cashier
+      visit '/cashiers/1/releases/new'
+    end
+    scenario 'creating a new release' do
+      expect(page).to have_content 'Nova nota fiscal'
+    end
+  end
 
-		visit new_release
-
-		fill_in 'release[value]', with: 19.50
-		fill_in 'release[doc_number]', with: 666
-		fill_in 'release[date_release]', with: '2013-10-31'
-		fill_in 'release[description]', with: 'McDonalds'
-		#fill_in 'release[form_payment]', with: 'Cartao'
-		#fill_in 'release[doc_type]', with: 'Recibo'
-		#fill_in 'release[type_release]', with: 'Saida'
-		select('Dinheiro', from: 'release[form_payment]')
-		select('Recibo', from: 'release[doc_type]')
-		select('Saida', from: 'release[type_release]')
-		fill_in 'release[origin_destination]', with: 'Origem'
-
-		# click_button('Cadastrar')
-
-		# page.should have_content('Release was successfully created.')
-
-	end	
 end
