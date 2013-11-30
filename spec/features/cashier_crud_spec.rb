@@ -12,7 +12,10 @@ feature 'Cashier Features' do
   context 'Create' do
     
     background do
-      @cashier = FactoryGirl.create :cashier, enterprise: @user
+
+      @cashier = FactoryGirl.create :cashier
+      @enterprise = FactoryGirl.create :enterprise, cashier: @cashier
+      @cashier2 = Cashier.create
     end
 
     scenario 'after create cashier' do
