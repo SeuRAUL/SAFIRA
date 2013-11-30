@@ -39,7 +39,8 @@ class ReleasesController < ApplicationController
   # GET /releases/1/edit
   def edit
     @cashier = Cashier.find(params[:cashier_id])
-    @release = @cashier.releases.find(params[:id])    
+    @release = @cashier.releases.find(params[:id])
+
   end
 
   # POST /releases
@@ -68,7 +69,7 @@ class ReleasesController < ApplicationController
 
     respond_to do |format|
       if @release.update_attributes(params[:release])
-        format.html { redirect_to @release, notice: 'Release was successfully updated.' }
+        format.html { redirect_to cashier_release_path(current_user), notice: 'Release was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
