@@ -1,28 +1,33 @@
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Opening balance:</b>
-  <%= @cashier.opening_balance %>
-</p>
+<section class="panel">
+  <header class="panel__header">
+    <span class="hide-mobile">
+      <h2>Últimos lançamentos</h2> <h4>Saldo <%= current_user.cashier.opening_balance %></h4>
+    </span>
+    <div class="pull-right">
+      <%= link_to 'LANÇAMENTO', new_cashier_release_path(current_user), :class => "btn--success" %>
+    </div> 
+  </header> 
 
 <table class="table">
   <tbody>
     <tr>
-      <th>Type release</th>
-      <th>Value</th>
-      <th>Description</th>
-      <th>Form payment</th>
-      <th>Date release</th>
-      <th>Doc number</th>
-      <th>Doc type</th>
-      <th>Origin destination</th>
+      <th>Tipo</th>
+      <th>Valor</th>
+      <th>Descrição</th>
+      <th>Forma de Pagamento</th>
+      <th>Data</th>
+      <th>Num do Documento</th>
+      <th>Tipo de Documento</th>
+      <th>Propósito</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
 
-    <% @cashier.releases.where(view: true).each do |release| %>
+    <% Release.where(view: true).limit(6).each do |release| %>
       <tr>
         <td><%= release.type_release %></td>
         <td><%= release.value %></td>
@@ -32,7 +37,8 @@
         <td><%= release.doc_number %></td>
         <td><%= release.doc_type %></td>
         <td><%= release.origin_destination %></td>
-        <td><%= link_to 'Show', cashier_releases_path(current_user), :class => "btn" %></td>
+        <td><%= link_to 'EDITAR', @edit_path, :class => "btn" %></td>
+        <td><%= link_to 'SHOW', cashier_releases_path(current_user), :class => "btn" %></td>
         <td><%= link_to 'Excluir', [release.cashier, release], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
         
       </tr>
@@ -41,5 +47,6 @@
 </table>
 
 <br />
+</section>
 
 <%= link_to 'New Release', new_cashier_release_path(current_user) %>
