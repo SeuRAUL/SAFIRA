@@ -44,7 +44,6 @@ class CashiersController < ApplicationController
   # POST /cashiers.json
   def create
     @cashier = Cashier.new(params[:cashier])
-    
 
     respond_to do |format|
       if @cashier.save

@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 new_release = '/cashiers/1/releases/new'
-edit_release = '/cashiers/1/releases/1/edit'
 
 index = '/cashiers'
 
@@ -37,25 +36,17 @@ feature 'Release Features' do
       select 'Recibo', from: 'release[doc_type]'
       select 'Saida', from: 'release[type_release]'
       fill_in 'release[origin_destination]', with: 'Origem'
-      #click_on 'Cadastrar'
+      click_on 'Cadastrar'
     end
   	scenario 'with correct inputs - create' do
-  		# click_on 'Cadastrar'
-  	   	# expect(page).to have_content '19.50'
-  	   	# expect(page).to have_content '666'
-  	   	# expect(page).to have_content '2013-10-31'
-  	   	# expect(page).to have_content 'McDonalds'
-  	   	# expect(page).to have_content 'Dinheiro'
-  	   	# expect(page).to have_content 'Recibo'
-  	   	# expect(page).to have_content 'Saida'
-  	   	# expect(page).to have_content 'Origem'
+  	    # expect(page).to have_content 'Últimos lançamentos'
   	end
   end
 
   context 'Update' do
     background do
       @release = FactoryGirl.create :release, cashier: @cashier
-      visit '/cashiers/''1/releases/1/edit'
+      visit edit_cashier_release_path(@cashier.id, @release)
     end
     scenario 'with correct inputs - update' do
     	fill_in 'release[description]', with: 'Subway'
