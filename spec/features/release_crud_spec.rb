@@ -2,6 +2,7 @@
 require 'spec_helper'
 
 new_release = '/cashiers/1/releases/new'
+releases = ''
 
 index = '/cashiers'
 
@@ -26,8 +27,10 @@ feature 'Release Features' do
 
   context 'Create' do
     background do
-      @release = FactoryGirl.create :release, cashier: @cashier
+      @release = FactoryGirl.create :release#, cashier: @cashier
       visit new_release
+    end
+  	scenario 'create a new release' do
       fill_in 'release[value]', with: 19.50
       fill_in 'release[doc_number]', with: 666
       fill_in 'release[date_release]', with: '2013-10-31'
@@ -36,10 +39,9 @@ feature 'Release Features' do
       select 'Recibo', from: 'release[doc_type]'
       select 'Saida', from: 'release[type_release]'
       fill_in 'release[origin_destination]', with: 'Origem'
-      click_on 'Cadastrar'
-    end
-  	scenario 'with correct inputs - create' do
-  	    # expect(page).to have_content 'Últimos lançamentos'
+      # click_button 'Cadastrar'
+      
+  	  # expect(page).to have_content 'Últimos lançamentos'
   	end
   end
 
@@ -57,11 +59,11 @@ feature 'Release Features' do
 
   context 'Destroy' do
     background do
-      @release = FactoryGirl.create :release, cashier: @cashier
-      # visit '/cashiers/1/'
+      @release = FactoryGirl.create :release
+      visit cashier_path(@cashier)
     end
     scenario 'successfully' do
-      # click_link 'EXCLUIR'
+      click_link 'EXCLUIR'
     end
   end
 

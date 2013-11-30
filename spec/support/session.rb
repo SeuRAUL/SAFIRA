@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Features
   module SessionHelpers
     def sign_up_with(email, password)

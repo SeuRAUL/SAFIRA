@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #encoding: utf-8
 class Cashier < ActiveRecord::Base
   attr_accessible :opening_balance, :enterprise

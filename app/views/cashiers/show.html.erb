@@ -30,7 +30,7 @@
         <td><%= link_to 'EDITAR', edit_cashier_release_path(release.cashier.id, release),       
         :class => "btn" %>      
         <%= link_to 'SHOW', cashier_release_path(current_user), :class => "btn" %>
-        <%= link_to 'Excluir', [release.cashier, release], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
+        <%= link_to 'EXCLUIR', [release.cashier, release], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn" %></td>
         
       </tr>
     <% end %>
