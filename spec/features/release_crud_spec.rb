@@ -3,6 +3,7 @@ require 'spec_helper'
 
 new_release = '/cashiers/1/releases/new'
 edit_release = '/cashiers/1/releases/1/edit'
+
 index = '/cashiers'
 
 feature 'Release Features' do
@@ -54,7 +55,7 @@ feature 'Release Features' do
   context 'Update' do
     background do
       @release = FactoryGirl.create :release, cashier: @cashier
-      visit edit_release
+      visit '/cashiers/''1/releases/1/edit'
     end
     scenario 'with correct inputs - update' do
     	fill_in 'release[description]', with: 'Subway'
