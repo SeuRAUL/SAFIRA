@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ReleasesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /releases
   # GET /releases.json
   def index
@@ -28,6 +29,7 @@ class ReleasesController < ApplicationController
   def new
     @release = Release.new
     @cashier = Cashier.find(params[:cashier_id])
+    #@cashier = current_user.cashier
     # @release.type_release = params[:type_release]
 
     respond_to do |format|
@@ -47,7 +49,7 @@ class ReleasesController < ApplicationController
   # POST /releases.json
   def create
     @cashier = Cashier.find(params[:cashier_id])
-    @release = @cashier.releases.new(params[:release])
+    @release = @cashier.releases.build(params[:release])
 
     #@release.date_release = post_date Date.today
     respond_to do |format|

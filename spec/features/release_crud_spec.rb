@@ -9,8 +9,8 @@ index = '/cashiers'
 feature 'Release Features' do
 	include Features::SessionHelpers
  	
- 	background do
-    	@user = FactoryGirl.create :enterprise
+ 	before(:each) do
+    	@user = FactoryGirl.create :four_soft
     	sign_in @user
     	@cashier = FactoryGirl.create :cashier, enterprise: @user
   	end
@@ -60,7 +60,7 @@ feature 'Release Features' do
   context 'Destroy' do
     background do
       @release = FactoryGirl.create :release
-      visit cashier_path(@cashier)
+      visit cashier_path(cashier)
     end
     scenario 'successfully' do
       click_link 'EXCLUIR'
