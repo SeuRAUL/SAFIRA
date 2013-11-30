@@ -38,8 +38,8 @@ class ReleasesController < ApplicationController
 
   # GET /releases/1/edit
   def edit
-    @release = Release.find(params[:id])
-    @cashier = @release.cashier
+    @cashier = Cashier.find(params[:cashier_id])
+    @release = @cashier.releases.find(params[:id])    
   end
 
   # POST /releases
