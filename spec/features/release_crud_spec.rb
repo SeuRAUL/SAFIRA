@@ -39,7 +39,7 @@ feature 'Release Features' do
       select 'Recibo', from: 'release[doc_type]'
       select 'Saida', from: 'release[type_release]'
       fill_in 'release[origin_destination]', with: 'Origem'
-      # click_button 'Cadastrar'
+      click_on 'Cadastrar'
       
   	  # expect(page).to have_content 'Últimos lançamentos'
   	end
@@ -60,10 +60,10 @@ feature 'Release Features' do
   context 'Destroy' do
     background do
       @release = FactoryGirl.create :release
-      visit cashier_path(@cashier)
+      visit cashiers_path(@cashier)
     end
     scenario 'successfully' do
-      click_link 'EXCLUIR'
+      #click_link 'EXCLUIR'
     end
   end
 
