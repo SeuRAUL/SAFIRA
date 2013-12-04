@@ -54,7 +54,7 @@ class ReleasesController < ApplicationController
     #@release.date_release = post_date Date.today
     respond_to do |format|
       if @release.save
-        format.html { redirect_to cashiers_path(@cashier), notice: 'Release was successfully created.' }
+        format.html { redirect_to cashier_path(@cashier), notice: 'Release was successfully created.' }
         #format.html { redirect_to cashier_release_path(@release.cashier, @release), notice: 'Release was successfully created.' }
         format.json { render json: @release, status: :created, location: @release }
       else

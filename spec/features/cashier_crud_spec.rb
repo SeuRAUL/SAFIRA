@@ -5,14 +5,14 @@ feature 'Cashier Features' do
   include Features::SessionHelpers
 
   background do
-    @user = FactoryGirl.create :enterprise
-    sign_in @user
+    user = create(:enterprise)
+    user.confirm!
+    sign_in user
   end
 
   context 'Create' do
     
     background do
-
       @cashier = FactoryGirl.create :cashier
       @enterprise = FactoryGirl.create :enterprise, cashier: @cashier
       @cashier2 = Cashier.create

@@ -2,14 +2,19 @@
 require 'spec_helper'
 
 feature 'CRUD Selection Processes' do
+  include Features::SessionHelpers
 
+  before(:each) do
+      user = create(:enterprise)
+      user.confirm!
+      sign_in user
+  end
   scenario 'visitors should be redirected to log in page' do
     visit new_selection_process_path
     current_path.should == user_session_path
   end
 
   scenario 'create new selection process' do
-    sign_in(create(:four_soft))
 
     visit new_selection_process_path
 
