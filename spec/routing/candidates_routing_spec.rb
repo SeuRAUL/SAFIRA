@@ -2,7 +2,7 @@
 require "spec_helper"
 
 describe CandidatesController do
-pending "add some examples to (or delete) #{__FILE__}"
+# pending "add some examples to (or delete) #{__FILE__}"
   # describe "routing" do
 
   #   it "routes to #index" do

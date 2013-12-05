@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe HumanResourcesController do
-	pending "add some examples to (or delete) #{__FILE__}"
+	# pending "add some examples to (or delete) #{__FILE__}"
   # describe "GET 'index'" do
   #   it "returns http success" do
   #     get 'index'

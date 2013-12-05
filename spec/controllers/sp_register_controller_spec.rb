@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe SpRegisterController do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # pending "add some examples to (or delete) #{__FILE__}"
   # describe "GET 'show_process'" do
   #   it "returns http success" do
   #     get 'show_process'

@@ -20,7 +20,7 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe EntrepreneursController do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # pending "add some examples to (or delete) #{__FILE__}"
   # # This should return the minimal set of attributes required to create a valid
   # # Entrepreneur. As you add validations to Entrepreneur, be sure to
   # # adjust the attributes here as well.

@@ -2,8 +2,8 @@
 require "spec_helper"
 
 describe ReleasesController do
-  pending "add some examples to (or delete) #{__FILE__}"
-    describe "routing" do
+  # pending "add some examples to (or delete) #{__FILE__}"
+    # describe "routing" do
 
   #   it "routes to #index" do
   #     get("/releases").should route_to("releases#index")
@@ -33,5 +33,5 @@ describe ReleasesController do
   #     delete("/releases/1").should route_to("releases#destroy", :id => "1")
   #   end
 
-    end
+    # end
 end
