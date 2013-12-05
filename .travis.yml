@@ -9,5 +9,5 @@ script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   
-  - bundle exec rspec spec/models/release_spec.rb spec/models/cashier_spec.rb spec/features/release_crud_spec.rb spec/features/cashier_crud_spec.rb spec/features/login_spec.rb spec/features/process_steps_spec.rb spec/features/selection_processes_specs.rb spec/mailers/candidate_mailer_spec.rb spec/mailers/feedback_mailer_spec.rb
+  - bundle exec rspec spec/models/release_spec.rb spec/models/cashier_spec.rb spec/features/release_crud_spec.rb spec/features/cashier_crud_spec.rb spec/features/login_spec.rb spec/features/process_steps_spec.rb spec/features/selection_processes_specs.rb spec/mailers/feedback_mailer_spec.rb
 
