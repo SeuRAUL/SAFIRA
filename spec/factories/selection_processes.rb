@@ -5,7 +5,7 @@ FactoryGirl.define do
   factory :selection_process do
 
     call "selection_process call"
-    name "selection_process name"
+    name "processname"
     edict File.new(Rails.root + 'spec/support/edictTest.pdf')
     edict_file_name 'edictTest'
 	edict_content_type 'text'

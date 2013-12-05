@@ -2,5 +2,11 @@
 require 'spec_helper'
 
 describe Feedback do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  # Relationships
+  it {should belong_to (:process_step)}
+  it {should belong_to (:candidate)}
+  
+  it {should have_a_valid_factory}
+
 end

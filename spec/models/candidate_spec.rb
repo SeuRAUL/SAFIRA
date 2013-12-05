@@ -2,5 +2,9 @@
 require 'spec_helper'
 
 describe Candidate do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	# Relationships
+  it {should belong_to (:selection_process)}
+
+  it {should have_a_valid_factory}
 end

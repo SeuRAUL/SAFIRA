@@ -2,19 +2,25 @@
 require "spec_helper"
 
 describe FeedbackMailer do
-  pending "add some examples to (or delete) #{__FILE__}"
-  # describe "public_feedback" do
-  #   let(:mail) { FeedbackMailer.public_feedback }
 
-  #   it "renders the headers" do
-  #     mail.subject.should eq("Public feedback")
-  #     mail.to.should eq(["to@example.org"])
-  #     mail.from.should eq(["from@example.com"])
-  #   end
+  before(:each) do
+    ActionMailer::Base.delivery_method = :test
+    ActionMailer::Base.perform_deliveries = true
+    ActionMailer::Base.deliveries = []
+  end
 
-  #   it "renders the body" do
-  #     mail.body.encoded.should match("Hi")
-  #   end
-  # end
+  describe "public_feedback" do
+    let(:mail) { FeedbackMailer.send_public_feedback(FactoryGirl.create(:feedback)).deliver }
+
+    it "renders the headers" do
+      mail.subject.should match("Feedback da etapa")
+      mail.to.should eq(["email@email.com"])
+      mail.from.should eq(["safira.4soft@gmail.com"])
+    end
+
+    it "renders the body" do
+      mail.body.encoded.should match("Olá, candidato")
+    end
+  end
 
 end

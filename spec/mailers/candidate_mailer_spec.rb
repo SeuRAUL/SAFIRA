@@ -2,19 +2,25 @@
 require "spec_helper"
 
 describe CandidateMailer do
-  pending "add some examples to (or delete) #{__FILE__}"
-  # describe "send_confirmation" do
-  #   let(:mail) { CandidateMailer.send_confirmation }
+ 
+  before(:each) do
+    ActionMailer::Base.delivery_method = :test
+    ActionMailer::Base.perform_deliveries = true
+    ActionMailer::Base.deliveries = []
+  end
 
-  #   it "renders the headers" do
-  #     mail.subject.should eq("Send confirmation")
-  #     mail.to.should eq(["to@example.org"])
-  #     mail.from.should eq(["from@example.com"])
-  #   end
+  describe "#send_confirmation" do
+    let(:mail) { CandidateMailer.send_confirmation(FactoryGirl.create(:selection_process), FactoryGirl.create(:candidate)).deliver }
 
-  #   it "renders the body" do
-  #     mail.body.encoded.should match("Hi")
-  #   end
-  # end
+    it "renders the headers" do
+      mail.subject.should match("Cadastro confirmado")
+      mail.to.should eq(["email@email.com"])
+      mail.from.should eq(["safira.4soft@gmail.com"])
+    end
+
+    it "renders the body" do
+      mail.body.encoded.should match("Seu cadastro no Processo Seletivo")
+    end
+  end
 
 end

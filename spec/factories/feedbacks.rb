@@ -5,7 +5,7 @@ FactoryGirl.define do
   factory :feedback do
     public "MyText"
     private "MyText"
-    candidate nil
+    candidate { FactoryGirl.build(:candidate) }
     process_step { FactoryGirl.build(:process_step) }
     
   end

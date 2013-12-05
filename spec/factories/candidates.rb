@@ -8,5 +8,6 @@ FactoryGirl.define do
     curriculum File.new(Rails.root + 'spec/support/curriculumTest.pdf')
     email "email@email.com"
     course "MyString"
+    selection_process { FactoryGirl.build(:selection_process) }
   end
 end
