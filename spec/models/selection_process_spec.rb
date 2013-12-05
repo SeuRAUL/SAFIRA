@@ -29,12 +29,4 @@ describe SelectionProcess do
     selection.consolidated.should be == true
   end
 
-  # it "should always create a inscription step when created" do
-  #   selection = create(:selection_process)
-  #   selection.should_receive(:create_inscription_step).and_call_original
-  #   selection.save
-
-  #   selection.process_steps.count.should be == 1
-  #   selection.process_steps.first.name.should eq("Inscrições")
-  # end
 end

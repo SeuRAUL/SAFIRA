@@ -1,17 +1,6 @@
 # -*- encoding : utf-8 -*-
 class CashiersController < ApplicationController
-  # GET /cashiers
-  # GET /cashiers.json
-  #def index
-   # @cashiers = Cashier.all
-    #@cashiers = Cashier.where(enterprise_id: current_user.id)
-
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @cashiers }
-    # end
-  #end
-
+  
   # GET /cashiers/1
   # GET /cashiers/1.json
    def show
@@ -35,7 +24,7 @@ class CashiersController < ApplicationController
     end
   end
 
-  # GET /cashiers/1/edit
+  #GET /cashiers/1/edit
   def edit
     @cashier = Cashier.find(params[:id])
   end

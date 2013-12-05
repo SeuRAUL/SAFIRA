@@ -5,4 +5,6 @@ class Cashier < ActiveRecord::Base
   
   belongs_to :enterprise, class_name: "User"
   has_many :releases, dependent: :destroy
+
+  validates_presence_of :opening_balance
 end

@@ -15,31 +15,23 @@ feature 'Cashier Features' do
     background do
       @cashier = FactoryGirl.create :cashier
       @enterprise = FactoryGirl.create :enterprise, cashier: @cashier
-      @cashier2 = Cashier.create
     end
 
     scenario 'after create cashier' do
       expect @cashier.opening_balance == 0
     end
 
-    # context 'with correct inputs' do
-    #   background do
-    #     fill_in 'project[title]', with: 'Project title'
-    #     fill_in 'project[description]', with: 'Project description'
-    #     click_on 'Save'
-    #   end
-    #   scenario 'it displays the project' do
-    #     expect(page).to have_content 'Project title'
-    #   end
-    #   scenario 'it displays the owner of the project' do
-    #     expect(page).to have_content @user.email
-    #   end
-      
-    # end
+    scenario 'try create a cashier manually' do
+      visit '/cashiers/new'
+      fill_in 'cashier[opening_balance]', with: 200
+      click_on 'Create Cashier'
+    end
 
-    # scenario 'with incorrect inputs' do
-    #   click_on 'Save'
-    # end
+    scenario 'try create a cashier manually inducing an error' do
+      visit '/cashiers/new'
+      fill_in 'cashier[opening_balance]', with: nil
+      click_on 'Create Cashier'
+    end
 
   end
 
