@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DeviseInvitableAddToEnterprises < ActiveRecord::Migration
   def up
     change_table :users do |t|

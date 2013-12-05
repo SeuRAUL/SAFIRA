@@ -1,4 +1,6 @@
+# -*- encoding : utf-8 -*-
 class ReleasesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /releases
   # GET /releases.json
   def index
@@ -27,6 +29,7 @@ class ReleasesController < ApplicationController
   def new
     @release = Release.new
     @cashier = Cashier.find(params[:cashier_id])
+    #@cashier = current_user.cashier
     # @release.type_release = params[:type_release]
 
     respond_to do |format|
@@ -37,20 +40,21 @@ class ReleasesController < ApplicationController
 
   # GET /releases/1/edit
   def edit
-    @release = Release.find(params[:id])
-    @cashier = @release.cashier
+    @cashier = Cashier.find(params[:cashier_id])
+    @release = @cashier.releases.find(params[:id])
+
   end
 
   # POST /releases
   # POST /releases.json
   def create
     @cashier = Cashier.find(params[:cashier_id])
-    @release = @cashier.releases.new(params[:release])
+    @release = @cashier.releases.build(params[:release])
 
     #@release.date_release = post_date Date.today
     respond_to do |format|
       if @release.save
-        format.html { redirect_to cashiers_path, notice: 'Release was successfully created.' }
+        format.html { redirect_to cashier_path(@cashier), notice: 'Release was successfully created.' }
         #format.html { redirect_to cashier_release_path(@release.cashier, @release), notice: 'Release was successfully created.' }
         format.json { render json: @release, status: :created, location: @release }
       else
@@ -67,7 +71,7 @@ class ReleasesController < ApplicationController
 
     respond_to do |format|
       if @release.update_attributes(params[:release])
-        format.html { redirect_to @release, notice: 'Release was successfully updated.' }
+        format.html { redirect_to cashier_release_path(current_user), notice: 'Release was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

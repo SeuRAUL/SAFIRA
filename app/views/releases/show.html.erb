@@ -1,45 +1,58 @@
+<section class="panel">
+  
 <p id="notice"><%= notice %></p>
 
+<header class="panel__header">
+    <span class="hide-mobile">
+      <h2>Informações do Lançamento</h2>
+    </span>    
+  </header> 
+<div class="panel">
 <p>
-  <b>Type release:</b>
+  <b>Tipo de Lançamento: </b>
   <%= @release.type_release %>
 </p>
 
 <p>
-  <b>Value:</b>
+  <b>Valor: </b>
   <%= @release.value %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Descriçao:</b>
   <%= @release.description %>
 </p>
 
 <p>
-  <b>Form payment:</b>
+  <b>Forma de Pagamento:</b>
   <%= @release.form_payment %>
 </p>
 
 <p>
-  <b>Date release:</b>
+  <b>Data:</b>
   <%= @release.date_release %>
 </p>
 
 <p>
-  <b>Doc number:</b>
+  <b>Número do documento:</b>
   <%= @release.doc_number %>
 </p>
 
 <p>
-  <b>Doc type:</b>
+  <b>Tipo de Documento:</b>
   <%= @release.doc_type %>
 </p>
 
 <p>
-  <b>Origin destination:</b>
+  <b>Proposito:</b>
   <%= @release.origin_destination %>
 </p>
-
-
-<%= link_to 'Edit', edit_cashier_release_path(@release) %> |
-<%= link_to 'Back', cashier_releases_path %>
+</div>
+ 
+<center> 
+<div class="actions">
+  <%= link_to 'Editar', edit_cashier_release_path(@release),  :class => "btn--success" %>
+  <%= link_to 'Voltar', cashier_path(current_user.cashier),  :class => "btn--primary" %>
+</div>
+</cente>      
+</section>  

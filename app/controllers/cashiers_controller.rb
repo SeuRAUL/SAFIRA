@@ -1,26 +1,16 @@
+# -*- encoding : utf-8 -*-
 class CashiersController < ApplicationController
-  # GET /cashiers
-  # GET /cashiers.json
-  def index
-    @cashiers = Cashier.all
-    #@cashiers = Cashier.where(enterprise_id: current_user.id)
-
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @cashiers }
-    # end
-  end
-
+  
   # GET /cashiers/1
   # GET /cashiers/1.json
-  def show
-    @cashier = Cashier.find(params[:id])
+   def show
+     @cashier = Cashier.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @cashier }
-    end
-  end
+     respond_to do |format|
+       format.html # show.html.erb
+       format.json { render json: @cashier }
+     end
+   end
 
   # GET /cashiers/new
   # GET /cashiers/new.json
@@ -34,7 +24,7 @@ class CashiersController < ApplicationController
     end
   end
 
-  # GET /cashiers/1/edit
+  #GET /cashiers/1/edit
   def edit
     @cashier = Cashier.find(params[:id])
   end
@@ -43,7 +33,6 @@ class CashiersController < ApplicationController
   # POST /cashiers.json
   def create
     @cashier = Cashier.new(params[:cashier])
-    
 
     respond_to do |format|
       if @cashier.save
@@ -58,19 +47,19 @@ class CashiersController < ApplicationController
 
   # PUT /cashiers/1
   # PUT /cashiers/1.json
-  def update
-    @cashier = Cashier.find(params[:id])
+  # def update
+  #   @cashier = Cashier.find(params[:id])
 
-    respond_to do |format|
-      if @cashier.update_attributes(params[:cashier])
-        format.html { redirect_to @cashier, notice: 'Cashier was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @cashier.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @cashier.update_attributes(params[:cashier])
+  #       format.html { redirect_to @cashier, notice: 'Cashier was successfully updated.' }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: "edit" }
+  #       format.json { render json: @cashier.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # # DELETE /cashiers/1
   # # DELETE /cashiers/1.json

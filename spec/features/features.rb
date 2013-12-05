@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require_relative 'session_helpers'
 
 RSpec.configure do |config|

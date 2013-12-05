@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCashiers < ActiveRecord::Migration
   def change
     create_table :cashiers do |t|

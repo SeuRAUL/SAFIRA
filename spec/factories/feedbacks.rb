@@ -6,6 +6,7 @@ FactoryGirl.define do
     public "MyText"
     private "MyText"
     candidate nil
-    process_step nil
+    process_step { FactoryGirl.build(:process_step) }
+    
   end
 end
