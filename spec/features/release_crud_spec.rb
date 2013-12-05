@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 new_release = '/cashiers/1/releases/new'
-
 index = '/cashiers'
 
 feature 'Release Features' do
