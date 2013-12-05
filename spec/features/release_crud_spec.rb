@@ -8,10 +8,12 @@ feature 'CRUD release' do
 	include Features::SessionHelpers
  	
  	background do
-    	@user = FactoryGirl.create :enterprise
-    	sign_in @user
-    	@cashier = FactoryGirl.create :cashier, enterprise: @user
-    	@release = FactoryGirl.create :release, cashier: @cashier
+    	# @user = FactoryGirl.create :enterprise
+    	# sign_in @user
+    	# @cashier = FactoryGirl.create :cashier, enterprise: @user
+    	# @release = FactoryGirl.create :release, cashier: @cashier
+
+    	@release = FactoryGirl.create :release
     	visit new_release
       	fill_in 'release[value]', with: 19.50
       	fill_in 'release[doc_number]', with: 666
@@ -31,7 +33,7 @@ feature 'CRUD release' do
 
   context 'Create' do
 	scenario 'with correct inputs - create' do
-		click_on 'Cadastrar'
+		click_button('Cadastrar')
 	   	expect(page).to have_content 19.50
 	   	expect(page).to have_content 666
 	   	expect(page).to have_content '2013-10-31'
