@@ -55,11 +55,11 @@ feature 'CRUD Selection Processes' do
       selection.candidates.count.should be == 0
     end
 
-    scenario 'should consolidate_process is called' do
-      selection = create(:selection_process)
-      selection.consolidate_process!
+    # scenario 'should consolidate_process is called' do
+    #   selection = create(:selection_process)
+    #   selection.consolidate_process!
 
-      selection.consolidated.should be == true
-    end
+    #   selection.consolidated.should be == true
+    # end
 
 end
